@@ -1,5 +1,5 @@
 <main>
-  <h1 class="text-4xl font-bold">quake</h1>
+  <h1 class="text-4xl font-bold">quark</h1>
   <p>the social media that's open source, and simple</p>
 
   <div class="my-6">
