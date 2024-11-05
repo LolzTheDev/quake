@@ -1,0 +1,19 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+input[type="text"],
+input[type="password"] {
+  @apply p-2 bg-zinc-50 border-zinc-400 border rounded-md focus:ring-1 ring-sky-500 ring-offset-1 duration-300;
+}
+
+input[type="submit"],
+button {
+  @apply p-2 bg-sky-500 rounded-md text-white font-semibold cursor-pointer;
+}

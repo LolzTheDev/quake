@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  username  String   @unique
+  nickname  String
+  password  String
+  joined    DateTime @default(now())
+  banned    Boolean  @default(false)
+  mod       Boolean  @default(false)
+  admin     Boolean  @default(false)
+  verified  Boolean  @default(false)
+  followers String[] @default([]) // User's followers
+  following String[] @default([]) // Used to track who the user is following
+}
+
+model Post {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  author   String // User ID
+  content  String
+  posted   DateTime @default(now())
+  edited   Boolean  @default(false)
+  deleted  Boolean  @default(false)
+  comments String[] @default([]) // Store comment IDs
+}
+
+model Comment {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  author  String
+  content String
+  post    String
+}
