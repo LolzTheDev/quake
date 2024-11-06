@@ -10,10 +10,15 @@ export async function GET({
 }) {
   const user = await db.user.findUnique({
     where: { id: params.id },
-    select: { username: true },
+    select: {
+      username: true,
+      nickname: true,
+      admin: true,
+      banned: true,
+      mod: true,
+      verified: true,
+    },
   });
 
-  return json({
-    username: user?.username ?? "unknown",
-  });
+  return json(user);
 }
