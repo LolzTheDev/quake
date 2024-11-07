@@ -14,6 +14,7 @@
     banned: false,
     mod: false,
     verified: false,
+    id: "fetching...",
   });
   let img = $state<string | undefined>(
     `/content/profile/picture/${post.author}.png`,
