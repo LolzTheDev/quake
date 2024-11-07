@@ -54,15 +54,23 @@ i started this on november 3rd iirc, and after hearing about hackclub i wanted t
 ### 0.0.1
 
 \+ registration
+
 \+ login
+
 \+ sessions
+
 \+ posting
+
 \+ feed
+
 \+ profile pictures
 
 ### 0.0.2
 
 \+ .env example
+
 \+ liking posts
+
 \+ updated profile endpoint
+
 \+ & more (i forgot...)
