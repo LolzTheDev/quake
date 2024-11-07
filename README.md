@@ -21,7 +21,7 @@ a list of todos and upcoming features
   - ~~login~~
 - post
   - ~~creating posts~~
-  - liking posts
+  - ~~liking posts~~
   - deleting posts
   - editing posts
   - reporting posts
@@ -48,3 +48,21 @@ i know you could just host a fedi instance but i made this so i could have more 
 ### when?
 
 i started this on november 3rd iirc, and after hearing about hackclub i wanted to participate and submit this, as most other projects were simple or generic and i wanted to be "unique" i guess.
+
+## changelogs
+
+### 0.0.1
+
+\+ registration
+\+ login
+\+ sessions
+\+ posting
+\+ feed
+\+ profile pictures
+
+### 0.0.2
+
+\+ .env example
+\+ liking posts
+\+ updated profile endpoint
+\+ & more (i forgot...)
