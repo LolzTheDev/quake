@@ -2,6 +2,7 @@ node_modules
 
 # static files
 /static/content/profile/picture/*
+!/static/content/profile/picture/invisiturtle.png
 
 # Output
 .output
