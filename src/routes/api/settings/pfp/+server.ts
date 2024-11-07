@@ -21,7 +21,7 @@ export async function POST({ request }: { request: Request }) {
   }
 
   writeFileSync(
-    `static/content/profile/picture/${user.payload.id}.png`,
+    `${__dirname}/static/content/profile/picture/${user.payload.id}.png`,
     Buffer.from(await pfp.arrayBuffer()),
   );
 
