@@ -26,11 +26,13 @@
   <img {src} alt="current profile pic" class="size-16" />
 
   <form
-    class="mt-4"
+    class="my-4"
     enctype="multipart/form-data"
     on:submit|preventDefault={async (e) => await upload(e)}
   >
     <input type="file" accept=".png" name="pfp" required />
     <button type="submit">upload</button>
   </form>
+
+  <a href="/api/logout" class="button !bg-red-500">log out</a>
 </main>

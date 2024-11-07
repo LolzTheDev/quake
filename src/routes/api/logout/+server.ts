@@ -11,5 +11,5 @@ export async function GET({
     path: "/",
   });
 
-  return redirect(300, "/");
+  throw redirect(301, "/");
 }

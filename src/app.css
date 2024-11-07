@@ -9,11 +9,13 @@
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
   @apply p-2 bg-zinc-50 border-zinc-400 border rounded-md focus:ring-1 ring-sky-500 ring-offset-1 duration-300;
 }
 
 input[type="submit"],
-button {
+button:not(button.like),
+.button {
   @apply p-2 bg-sky-500 rounded-md text-white font-semibold cursor-pointer;
 }

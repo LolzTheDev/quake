@@ -1,5 +1,8 @@
 node_modules
 
+# static files
+/static/content/profile/picture/*
+
 # Output
 .output
 .vercel

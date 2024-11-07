@@ -17,6 +17,7 @@
     }
 
     alert(data.message);
+    window.location.href = "/login";
   }
 </script>
 

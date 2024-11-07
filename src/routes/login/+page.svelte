@@ -15,7 +15,7 @@
       return;
     }
 
-    alert(data.token);
+    window.location.href = "/feed";
   }
 </script>
 

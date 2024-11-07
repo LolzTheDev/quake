@@ -2,7 +2,6 @@
   import Post from "$lib/components/Post.svelte";
   import type { PageServerData } from "./$types";
   import { page } from "$app/stores";
-  import { goto } from "$app/navigation";
 
   export let data: PageServerData;
   let content = "";
@@ -61,7 +60,7 @@
     <p class="text-center">looking empty...</p>
   {:else}
     <div class="flex w-full justify-center">
-      <div class="w-1/3 space-y-3">
+      <div class="w-2/5 space-y-3">
         {#each data.posts as post}
           <Post {post} />
         {/each}

@@ -15,7 +15,8 @@
 
 <Nav
   user={{
-    name: "to be added",
+    auth: JSON.stringify(data.user) === "{}" ? false : true,
+    profile: data.user,
   }}
 />
 

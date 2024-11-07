@@ -30,6 +30,7 @@ model Post {
   edited   Boolean  @default(false)
   deleted  Boolean  @default(false)
   comments String[] @default([]) // Store comment IDs
+  likes    String[] @default([]) // Array of user IDs
 }
 
 model Comment {
