@@ -17,6 +17,7 @@ export async function GET({
       banned: true,
       mod: true,
       verified: true,
+      id: true,
     },
   });
 

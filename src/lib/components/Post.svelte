@@ -53,23 +53,7 @@
   class="p-4 border rounded-xl bg-zinc-50 border-zinc-300 hover:scale-[102.5%] duration-300"
 >
   <div class="flex gap-2 items-center">
-    {#if img}
-      <img
-        src={img}
-        class="size-8 rounded-md"
-        alt="pfp"
-        onerror={(event) => {
-          event.preventDefault();
-          img = undefined;
-        }}
-      />
-    {:else if !img}
-      <img
-        src="/content/profile/picture/invisiturtle.png"
-        class="size-8 rounded-md"
-        alt="placeholder pfp"
-      />
-    {/if}
+    <img src={`/api/pfp/${user.id}`} class="size-8 rounded-md" alt="pfp" />
 
     <div class="flex items-center">
       <p class="font-semibold text-lg mr-1" title={`@${user.username}`}>

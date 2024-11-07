@@ -24,7 +24,7 @@
         class="text-xl flex gap-2 items-center font-semibold hover:bg-sky-600 duration-300 rounded-md px-4 py-2"
       >
         <img
-          src={`/content/profile/picture/${props.user.profile.id}.png`}
+          src={`/api/pfp/${props.user.profile.id}`}
           alt="pfp"
           class="size-6 bg-white rounded-md"
         />
