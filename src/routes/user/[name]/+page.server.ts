@@ -10,11 +10,14 @@ export const load: PageServerLoad = async ({ params }: { params: any }) => {
     select: {
       username: true,
       nickname: true,
+      bio: true,
       admin: true,
       banned: true,
       mod: true,
       verified: true,
       id: true,
+      followers: true,
+      following: true,
     },
   });
 

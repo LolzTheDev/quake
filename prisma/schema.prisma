@@ -13,6 +13,7 @@ model User {
   username  String   @unique
   nickname  String
   password  String
+  bio       String   @default("Hello!")
   joined    DateTime @default(now())
   banned    Boolean  @default(false)
   mod       Boolean  @default(false)

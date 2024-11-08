@@ -19,7 +19,12 @@ a list of todos and upcoming features
 - ~~authentication~~
   - ~~registration~~
   - ~~login~~
+- user
+  - ~~follow users~~
+  - ~~profile pictures~~
+  - display names
 - post
+  - ~~personalized feed~~
   - ~~creating posts~~
   - ~~liking posts~~
   - deleting posts
