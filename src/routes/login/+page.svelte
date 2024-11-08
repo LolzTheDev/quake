@@ -20,12 +20,35 @@
 </script>
 
 <main>
-  <h1 class="text-3xl font-bold">login</h1>
+  <div
+    class="bg-zinc-50 border-zinc-500 border rounded-lg p-6 flex justify-center w-1/5 mx-auto"
+  >
+    <div class="w-full">
+      <h1 class="text-3xl font-bold text-center">login</h1>
+      <hr class="my-3 border-b-[1px] border-b-zinc-500" />
+      <form on:submit={login} class="grid grid-cols-1 gap-2">
+        <div class="space-y-1">
+          <p>username</p>
+          <input
+            type="text"
+            class="w-full"
+            placeholder="mycoolusername"
+            bind:value={username}
+          />
+        </div>
 
-  <form on:submit={login} class="grid grid-cols-1 gap-2 w-64">
-    <input type="text" placeholder="username" bind:value={username} />
-    <input type="password" placeholder="password" bind:value={password} />
+        <div class="space-y-1">
+          <p>password</p>
+          <input
+            type="password"
+            class="w-full"
+            placeholder="supersecretpassword123"
+            bind:value={password}
+          />
+        </div>
 
-    <input type="submit" value="login" />
-  </form>
+        <input type="submit" class="mt-2" value="login" />
+      </form>
+    </div>
+  </div>
 </main>

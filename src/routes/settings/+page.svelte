@@ -13,10 +13,9 @@
     });
 
     const result = await res.json();
-    alert(JSON.stringify(result));
   }
 
-  let src = `content/profile/picture/${$page.data.user.id}.png`;
+  let src = `/api/pfp/${$page.data.user.id}`;
 </script>
 
 <main>
