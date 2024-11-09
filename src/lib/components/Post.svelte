@@ -48,6 +48,10 @@
   onMount(() => {
     fetchUsername();
   });
+
+  $effect(() => {
+    fetchUsername();
+  });
 </script>
 
 <div
@@ -57,9 +61,13 @@
     <img src={`/api/pfp/${user.id}`} class="size-8 rounded-md" alt="pfp" />
 
     <div class="flex items-center">
-      <p class="font-semibold text-lg mr-1" title={`@${user.username}`}>
+      <a
+        href={`/user/${user.username}`}
+        class="font-semibold text-lg mr-1"
+        title={`@${user.username}`}
+      >
         {user.nickname}
-      </p>
+      </a>
 
       {#if user.verified}
         <Verified class="text-zinc-50 size-[24px]" fill="#0ea5e9" />

@@ -2,6 +2,7 @@
   import type { PageServerData } from "./$types";
   import Post from "$lib/components/Post.svelte";
   import { page } from "$app/stores";
+  import { UserRoundPlus } from "lucide-svelte";
 
   const { data }: { data: PageServerData } = $props();
   let following = $state(false);
@@ -51,9 +52,15 @@
 
       <div class="gap-2 flex items-center">
         <p>{followers} followers</p>
-        <button class={following ? "!bg-zinc-400" : ""} onclick={toggleFollow}
-          >{following ? "unfollow" : "follow"}</button
+        <button
+          class={following
+            ? "!bg-zinc-400 w-28 flex items-center gap-2 justify-center"
+            : "w-28 flex items-center gap-2 justify-center"}
+          onclick={toggleFollow}
         >
+          <UserRoundPlus size={24} />
+          <p>{following ? "unfollow" : "follow"}</p>
+        </button>
       </div>
     </div>
 
