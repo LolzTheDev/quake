@@ -3,7 +3,7 @@ import { error, redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }: { params: any }) => {
-  const user = await db.user.findUnique({
+  const profile = await db.user.findUnique({
     where: {
       username: params.name,
     },
@@ -21,9 +21,9 @@ export const load: PageServerLoad = async ({ params }: { params: any }) => {
     },
   });
 
-  const posts = await db.post.findMany({
+  const posts = db.post.findMany({
     where: {
-      author: user?.id,
+      author: profile?.id,
     },
     orderBy: {
       posted: "desc",
@@ -32,7 +32,7 @@ export const load: PageServerLoad = async ({ params }: { params: any }) => {
   });
 
   return {
-    user,
+    profile,
     posts,
   };
 };
