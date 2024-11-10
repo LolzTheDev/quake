@@ -28,6 +28,20 @@
   }
 </script>
 
+<svelte:head>
+  <meta
+    name="og:title"
+    content={`${data.profile?.nickname} (@${data.profile?.username})`}
+  />
+
+  <meta
+    name="og:description"
+    content={`view ${data.profile?.nickname}'s profile on quark!`}
+  />
+
+  <meta name="theme-color" content="#FF0000" />
+</svelte:head>
+
 <main>
   {#if data.profile}
     <div
