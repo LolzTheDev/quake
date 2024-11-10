@@ -18,6 +18,18 @@ export async function POST({ request }: { request: Request }) {
     });
   }
 
+  if (
+    !new RegExp("^[A-z0-9_](?:[A-Za-z0-9._]{2,18}[A-Za-z0-9_])?$").test(
+      username,
+    )
+  ) {
+    return json({
+      valid: false,
+      message:
+        "invalid username, max length is 20 chars and min is 4, you may use A-Z (lowercase or upper) and ., _ (non-trailing)",
+    });
+  }
+
   let newUser: User;
   try {
     newUser = await db.user.create({

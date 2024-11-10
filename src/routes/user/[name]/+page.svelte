@@ -2,7 +2,7 @@
   import type { PageServerData } from "./$types";
   import Post from "$lib/components/Post.svelte";
   import { page } from "$app/stores";
-  import { UserRoundPlus } from "lucide-svelte";
+  import { ShieldCheck, UserRoundPlus, Verified } from "lucide-svelte";
 
   const { data }: { data: PageServerData } = $props();
   let following = $state(data.profile?.followers.includes($page.data.user.id));
@@ -45,7 +45,7 @@
 <main>
   {#if data.profile}
     <div
-      class="flex items-center gap-2 bg-sky-200 py-8 px-8 mb-4 rounded-lg border border-sky-400 w-1/2 mx-auto justify-between"
+      class="flex items-center gap-2 bg-sky-100 py-8 px-8 mb-4 rounded-lg border border-sky-400 w-1/2 mx-auto justify-between"
     >
       <div class="flex items-center gap-4">
         <img
@@ -55,7 +55,16 @@
         />
 
         <div class="grid items-center">
-          <p class="text-4xl font-bold">{data.profile.nickname}</p>
+          <div class="flex gap-2 items-center">
+            <p class="text-4xl font-bold">{data.profile.nickname}</p>
+            {#if data.profile.verified}
+              <Verified class="text-sky-100 size-[32px]" fill="#0ea5e9" />
+            {/if}
+
+            {#if data.profile.admin}
+              <ShieldCheck class="text-sky-100 size-[32px]" fill="#0ea5e9" />
+            {/if}
+          </div>
           <p class="text-lg">@{data.profile.username}</p>
           <p>{data.profile.bio}</p>
         </div>

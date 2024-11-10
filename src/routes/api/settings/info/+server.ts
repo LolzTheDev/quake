@@ -25,7 +25,7 @@ export async function POST({
   if (!nickname || !bio)
     return json({ error: true, message: "missing details " });
 
-  if (nickname.length > 15 || bio.length > 50)
+  if (nickname.length > 15 || bio.length > 90)
     return json({ error: true, message: "detail length too long" });
 
   await db.user.update({

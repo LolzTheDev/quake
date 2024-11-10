@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { Post } from "@prisma/client";
-  import { Heart, ShieldCheck, Verified } from "lucide-svelte";
+  import { Heart, Link, ShieldCheck, Verified } from "lucide-svelte";
   import { page } from "$app/stores";
 
   const { post }: { post: Post } = $props<{ post: Post }>();
@@ -92,9 +92,22 @@
         <p>{likes}</p>
       </button>
 
-      <p class="text-sm opacity-40">
-        {`${posted.getMonth() + 1} / ${posted.getDate()} / ${posted.getFullYear()} @ ${posted.getHours() + 1}:${posted.getMinutes() < 9 ? 0 : ""}${posted.getMinutes()}`}
-      </p>
+      <div class="flex items-center gap-3">
+        <button
+          onclick={async () => {
+            await navigator.clipboard.writeText(
+              `${location.origin}/post/${post.id}`,
+            );
+            window.location.href = `/post/${post.id}`;
+          }}
+          class="flex items-center gap-1 like"
+        >
+          <Link class="size-4 opacity-50" />
+        </button>
+        <p class="text-sm opacity-50">
+          {`${posted.getMonth() + 1} / ${posted.getDate()} / ${posted.getFullYear()} @ ${posted.getHours() + 1}:${posted.getMinutes() < 9 ? 0 : ""}${posted.getMinutes()}`}
+        </p>
+      </div>
     </div>
   </div>
 </div>
