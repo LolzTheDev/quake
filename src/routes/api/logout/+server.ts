@@ -5,5 +5,5 @@ export async function GET({ cookies }: { cookies: Cookies }) {
     path: "/",
   });
 
-  throw redirect(301, "/");
+  throw redirect(303, "/");
 }

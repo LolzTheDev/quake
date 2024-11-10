@@ -10,7 +10,7 @@ export async function GET({ params }: { params: any }) {
       ),
       {
         headers: {
-          "Cache-Control": "public, max-age=31536000",
+          "Cache-Control": "public, max-age=15",
         },
       },
     );

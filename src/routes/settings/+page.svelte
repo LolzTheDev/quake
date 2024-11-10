@@ -20,6 +20,7 @@
     });
 
     const result = await res.json();
+    alert(result.message);
   }
 
   async function updateProfile(event: SubmitEvent) {
