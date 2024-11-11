@@ -60,7 +60,7 @@
     <p class="text-center">looking empty...</p>
   {:else}
     <div class="flex w-full justify-center">
-      <div class="w-2/5 space-y-3">
+      <div class="lg:w-2/5 space-y-3">
         {#each data.posts as post}
           <Post {post} />
         {/each}

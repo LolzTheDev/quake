@@ -10,7 +10,7 @@
     <p>post not found!</p>
   {:else}
     <div class="flex w-full justify-center">
-      <div class="w-2/5 space-y-3">
+      <div class="lg:w-2/5 w-full space-y-3">
         <Post post={data.post} />
       </div>
     </div>

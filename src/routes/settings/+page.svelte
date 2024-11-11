@@ -46,7 +46,7 @@
 </script>
 
 <main>
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
     <div class="p-5 rounded-md border border-zinc-400 bg-zinc-50">
       <h3 class="text-3xl font-semibold">profile pic</h3>
       <p>for now, only png is accepted.</p>

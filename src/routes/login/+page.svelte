@@ -21,12 +21,12 @@
 
 <main>
   <div
-    class="bg-zinc-50 border-zinc-500 border rounded-lg p-6 flex justify-center w-1/5 mx-auto"
+    class="bg-zinc-50 border-zinc-500 border rounded-lg p-6 flex justify-center sm:w-full lg:w-1/5 mx-auto"
   >
     <div class="w-full">
       <h1 class="text-3xl font-bold text-center">login</h1>
       <hr class="my-3 border-b-[1px] border-b-zinc-500" />
-      <form on:submit={login} class="grid grid-cols-1 gap-2">
+      <form on:submit={login} class="grid grid-cols-1 gap-2 sm:w-full">
         <div class="space-y-1">
           <p>username</p>
           <input

@@ -45,7 +45,7 @@
 <main>
   {#if data.profile}
     <div
-      class="flex items-center gap-2 bg-sky-100 py-8 px-8 mb-4 rounded-lg border border-sky-400 w-1/2 mx-auto justify-between"
+      class="flex items-center gap-2 bg-sky-100 py-8 px-8 mb-4 rounded-lg border border-sky-400 lg:w-1/2 mx-auto justify-between"
     >
       <div class="flex items-center gap-4">
         <img
@@ -56,7 +56,9 @@
 
         <div class="grid items-center">
           <div class="flex gap-2 items-center">
-            <p class="text-4xl font-bold">{data.profile.nickname}</p>
+            <p class="lg:text-4xl font-bold text-lg">
+              {data.profile.nickname}
+            </p>
             {#if data.profile.verified}
               <Verified class="text-sky-100 size-[32px]" fill="#0ea5e9" />
             {/if}
@@ -65,13 +67,15 @@
               <ShieldCheck class="text-sky-100 size-[32px]" fill="#0ea5e9" />
             {/if}
           </div>
-          <p class="text-lg">@{data.profile.username}</p>
-          <p>{data.profile.bio}</p>
+          <p class="lg:text-lg text-xs">@{data.profile.username}</p>
+          <p class="lg:text-base text-xs">{data.profile.bio}</p>
         </div>
       </div>
 
       <div class="gap-2 flex items-center">
-        <p>{followers} followers</p>
+        <p class="lg:text-base lg:opacity-100 opacity-0">
+          {followers} followers
+        </p>
         <button
           class={following
             ? "!bg-zinc-400 w-28 flex items-center gap-2 justify-center"
@@ -95,7 +99,7 @@
         <p class="text-center">looking empty...</p>
       {:else}
         <div class="flex w-full justify-center">
-          <div class="w-2/5 space-y-3">
+          <div class="lg:w-2/5 w-full space-y-3">
             {#each posts as post}
               <Post {post} />
             {/each}
