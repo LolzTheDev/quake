@@ -40,3 +40,18 @@ model Comment {
   content String
   post    String
 }
+
+model Notification {
+  id      String     @id @default(auto()) @map("_id") @db.ObjectId
+  from    String
+  to      String
+  type    Notif_Type
+  message String
+}
+
+enum Notif_Type {
+  LIKE
+  FOLLOW
+  COMMENT
+  POST
+}
