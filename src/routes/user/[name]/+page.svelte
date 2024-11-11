@@ -26,6 +26,11 @@
     following = !following;
     following ? followers++ : followers--;
   }
+
+  $effect(() => {
+    following = data.profile?.followers.includes($page.data.user.id);
+    followers = data.profile?.followers.length || 0;
+  });
 </script>
 
 <svelte:head>
@@ -68,7 +73,7 @@
             {/if}
           </div>
           <p class="lg:text-lg text-xs">@{data.profile.username}</p>
-          <p class="lg:text-base text-xs">{data.profile.bio}</p>
+          <p class="lg:text-base text-xs max-w-80">{data.profile.bio}</p>
         </div>
       </div>
 

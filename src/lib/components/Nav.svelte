@@ -14,6 +14,12 @@
       >
 
       <a
+        href="/explore"
+        class="text-xl font-semibold hover:bg-sky-600 duration-300 rounded-md px-4 py-2"
+        >explore</a
+      >
+
+      <a
         href="/settings"
         class="text-xl font-semibold hover:bg-sky-600 duration-300 rounded-md px-4 py-2"
         >settings</a
