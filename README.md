@@ -1,55 +1,39 @@
-# quark
+# 🧬 quark
 
-the free, open source, twitter "clone" with it's own twists
+> _a simple, easy to self-host, and fun twitter clone for all to enjoy._
 
-tech stack:
+- 🌟 **users**: create or login to your account and make or interact with posts!
+- 🔥 **simplicity**: easy to host or modify, built with sveltekit
+- 🔓 **open source**: view, modify, or reuse the source code _for free!_
 
-- svelte 5
-- sveltekit
-- tailwindcss
-- prisma & mongodb
-- <3 (love)
-
-built by [spark](https://github.com/LolzTheDev)
-
-## tasks
+## 🚧 roadmap
 
 a list of todos and upcoming features
 
-- ~~authentication~~
-  - ~~registration~~
-  - ~~login~~
-- user
-  - ~~follow users~~
-  - ~~profile pictures~~
-  - display names
-- post
-  - ~~personalized feed~~
-  - ~~creating posts~~
-  - ~~liking posts~~
-  - deleting posts
-  - editing posts
-  - reporting posts
-- commenting
-  - replying to comments
-  - deleting comments
-- administrator tools
-  - banning users
-  - deleting users
-  - deleting posts
-  - deleting comments
-  - verifying users
-  - username changes
-  - statistics
-
-## the motive
-
-### why?
-
-i've always felt like social platforms are too complex, sluggish, and harbor a toxic community. i made this in hopes to make hosting your own social platform -- whether it's public or private -- easier and fun!
-
-i know you could just host a fedi instance but i made this so i could have more control and implement my own features here and there.
-
-### when?
-
-i started this on november 3rd iirc, and after hearing about hackclub i wanted to participate and submit this, as most other projects were simple or generic and i wanted to be "unique" i guess.
+- **authentication**
+  - [x] registration
+  - [x] login
+- **user**
+  - [x] follow users
+  - [x] profile pictures
+  - [x] display names
+  - [x] following users
+- **post**
+  - [x] personalized feed
+  - [x] creating posts
+  - [x] liking posts
+  - [ ] deleting posts
+  - [ ] editing posts
+  - [ ] reporting posts
+- **commenting**
+  - [ ] creating comments
+  - [ ] replying to comments
+  - [ ] deleting comments
+- **administrator tools**
+  - [ ] banning users
+  - [ ] deleting users
+  - [ ] deleting posts
+  - [ ] deleting comments
+  - [ ] verifying users
+  - [ ] username changes
+  - [ ] statistics
