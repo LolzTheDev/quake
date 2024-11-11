@@ -28,6 +28,9 @@ export async function POST({
   if (nickname.length > 15 || bio.length > 90)
     return json({ error: true, message: "detail length too long" });
 
+  if (nickname.length < 4)
+    return json({ error: true, message: "nickname too short" });
+
   await db.user.update({
     where: {
       id: session.payload.id,
