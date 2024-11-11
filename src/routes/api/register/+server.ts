@@ -5,9 +5,12 @@ import { json } from "@sveltejs/kit";
 
 export async function POST({ request }: { request: Request }) {
   const { username, email, password } = await request.json();
-  const user = await db.user.findUnique({
+  const user = await db.user.findFirst({
     where: {
-      username,
+      username: {
+        mode: "insensitive",
+        equals: username,
+      },
     },
   });
 
