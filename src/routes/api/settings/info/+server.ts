@@ -22,7 +22,7 @@ export async function POST({
   const session = await auth.decryptToken(token);
   const { nickname, bio } = await request.json();
 
-  if (!nickname || !bio)
+  if (!nickname.trim() || !bio)
     return json({ error: true, message: "missing details " });
 
   if (nickname.length > 15 || bio.length > 90)
