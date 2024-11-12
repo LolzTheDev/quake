@@ -35,4 +35,9 @@ export async function POST({
   cookies.set("token", newSession, {
     path: "/",
   });
+
+  return json({
+    error: false,
+    message: "refreshed",
+  });
 }
