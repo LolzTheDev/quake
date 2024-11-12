@@ -6,7 +6,9 @@
 
   const { data }: { data: PageServerData } = $props();
   let following = $state(data.profile?.followers.includes($page.data.user.id));
+  let followingCount = $state(data.profile?.following.length);
   let followers = $state(data.profile?.followers.length || 0);
+  let authorized = $state($page.data.session ? true : false);
 
   async function toggleFollow() {
     const res = await fetch(`/api/follow-user/${data.profile?.id}`, {
@@ -30,6 +32,8 @@
   $effect(() => {
     following = data.profile?.followers.includes($page.data.user.id);
     followers = data.profile?.followers.length || 0;
+    authorized = $page.data.session ? true : false;
+    followingCount = data.profile?.following.length;
   });
 </script>
 
@@ -50,7 +54,7 @@
 <main>
   {#if data.profile}
     <div
-      class="flex items-center gap-2 bg-sky-100 py-8 px-8 mb-4 rounded-lg border border-sky-400 lg:w-1/2 mx-auto justify-between"
+      class="flex items-center gap-2 bg-sky-100 py-8 px-8 mb-4 rounded-lg border border-sky-400 lg:w-3/5 mx-auto justify-between"
     >
       <div class="flex items-center gap-4">
         <img
@@ -61,7 +65,7 @@
 
         <div class="grid items-center">
           <div class="flex gap-2 items-center">
-            <p class="lg:text-4xl font-bold text-lg">
+            <p class="lg:text-4xl max-w-96 line-clamp-1 font-bold text-lg">
               {data.profile.nickname}
             </p>
             {#if data.profile.verified}
@@ -78,18 +82,30 @@
       </div>
 
       <div class="gap-2 flex items-center">
-        <p class="lg:text-base lg:opacity-100 opacity-0">
-          {followers} followers
-        </p>
-        <button
-          class={following
-            ? "!bg-zinc-400 w-28 flex items-center gap-2 justify-center"
-            : "w-28 flex items-center gap-2 justify-center"}
-          onclick={toggleFollow}
+        <a
+          href={`/user/${data.profile.username}/followers`}
+          class="lg:text-base lg:opacity-100 opacity-0 hover:underline"
         >
-          <UserRoundPlus size={24} />
-          <p>{following ? "unfollow" : "follow"}</p>
-        </button>
+          {followers} followers
+        </a>
+
+        <p class="opacity-0 lg:opacity-100">&bull;</p>
+
+        <p class="lg:text-base lg:opacity-100 opacity-0">
+          {followingCount} following
+        </p>
+
+        {#if authorized}
+          <button
+            class={following
+              ? "!bg-zinc-400 w-28 flex items-center gap-2 justify-center"
+              : "w-28 flex items-center gap-2 justify-center"}
+            onclick={toggleFollow}
+          >
+            <UserRoundPlus size={24} />
+            <p>{following ? "unfollow" : "follow"}</p>
+          </button>
+        {/if}
       </div>
     </div>
 
