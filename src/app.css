@@ -8,6 +8,10 @@
   font-family: "Inter", sans-serif;
 }
 
+body {
+  @apply bg-[#fafafa];
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {

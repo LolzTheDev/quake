@@ -26,12 +26,12 @@
 </script>
 
 <div
-  class="bg-zinc-50 p-2 border border-zinc-400 flex items-center gap-2 rounded-md text-lg font-bold hover:scale-[102.5%] duration-200"
+  class="bg-zinc-50 p-2 border border-zinc-300 flex items-center gap-2 rounded-md text-lg font-bold hover:scale-[102.5%] duration-200"
 >
   <img
     src={`/api/pfp/${props.id}`}
     alt="profile pic"
-    class="size-10 rounded-md border border-zinc-400"
+    class="size-10 rounded-md border border-zinc-300"
   />
   <a href={`/user/${user.name}`}>{user.nickname} (@{user.name})</a>
 </div>

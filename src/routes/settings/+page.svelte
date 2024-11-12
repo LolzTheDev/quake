@@ -69,12 +69,14 @@
 
       <form class="my-4" onsubmit={async (e) => await updateProfile(e)}>
         <p>nickname (display name)</p>
-        <input type="text" bind:value={nickname} />
+        <input type="text" class="w-full" bind:value={nickname} />
 
         <p>bio</p>
-        <input type="text" bind:value={bio} />
+        <input type="text" class="w-full" bind:value={bio} />
 
-        <button type="submit">update</button>
+        <div class="my-8"></div>
+
+        <button type="submit" class="w-full">update</button>
       </form>
     </div>
   </div>

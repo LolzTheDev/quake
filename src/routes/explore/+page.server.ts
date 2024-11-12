@@ -2,11 +2,8 @@ import { db } from "$lib/server/db.server";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
-  const users = db.user.findMany({
-    take: 10,
-    orderBy: {
-      followers: "desc",
-    },
+  let users = db.user.findMany({
+    take: 9,
   });
 
   const posts = db.post.findMany({
