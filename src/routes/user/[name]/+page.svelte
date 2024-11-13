@@ -38,6 +38,8 @@
 </script>
 
 <svelte:head>
+  <title>quark - @{data.profile?.username}'s profile</title>
+
   <meta
     name="og:title"
     content={`${data.profile?.nickname} (@${data.profile?.username})`}
@@ -48,7 +50,7 @@
     content={`view ${data.profile?.nickname}'s profile on quark!`}
   />
 
-  <meta name="theme-color" content="#FF0000" />
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>

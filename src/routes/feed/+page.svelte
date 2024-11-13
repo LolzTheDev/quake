@@ -35,6 +35,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>quark - my feed</title>
+</svelte:head>
+
 <main>
   <h1 class="text-center text-4xl font-bold">your feed</h1>
 

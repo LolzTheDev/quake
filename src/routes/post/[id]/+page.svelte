@@ -5,6 +5,10 @@
   const { data }: { data: PageServerData } = $props();
 </script>
 
+<svelte:head>
+  <title>quark - post</title>
+</svelte:head>
+
 <main>
   {#if !data.post}
     <p>post not found!</p>

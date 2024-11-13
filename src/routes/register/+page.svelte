@@ -25,6 +25,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>quark - register</title>
+</svelte:head>
+
 <main>
   <div
     class="bg-zinc-50 border-zinc-500 border rounded-lg p-6 flex justify-center sm:w-full lg:w-1/5 mx-auto"

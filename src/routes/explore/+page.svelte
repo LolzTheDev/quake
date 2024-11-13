@@ -6,6 +6,10 @@
   const { data }: { data: PageServerData } = $props();
 </script>
 
+<svelte:head>
+  <title>quark - explore</title>
+</svelte:head>
+
 <main>
   <h3 class="text-4xl font-bold text-center">explore</h3>
 

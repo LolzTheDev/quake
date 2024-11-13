@@ -45,6 +45,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>quark - settings</title>
+</svelte:head>
+
 <main>
   <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
     <div class="p-5 rounded-md border border-zinc-400 bg-zinc-50">
