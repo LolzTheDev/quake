@@ -1,6 +1,6 @@
 <main>
   <div class="flex items-center gap-3">
-    <img src="/logo-full.png" width={48} height={48} alt="quark logo" />
+    <img src="/logo-full.svg" width={48} height={48} alt="quark logo" />
     <h1 class="text-4xl font-bold">quark</h1>
   </div>
 
