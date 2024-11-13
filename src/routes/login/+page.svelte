@@ -21,6 +21,12 @@
 
 <svelte:head>
   <title>quark - login</title>
+
+  <meta name="og:title" content="login" />
+
+  <meta name="og:description" content="log into a quark social account" />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>

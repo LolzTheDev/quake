@@ -37,6 +37,12 @@
 
 <svelte:head>
   <title>quark - my feed</title>
+
+  <meta name="og:title" content="feed" />
+
+  <meta name="og:description" content="view your personalized posts" />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>
