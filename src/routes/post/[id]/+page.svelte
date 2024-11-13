@@ -7,6 +7,15 @@
 
 <svelte:head>
   <title>quark - post</title>
+
+  <meta name="og:title" content={`post on quark social`} />
+
+  <meta
+    name="og:description"
+    content={data.post?.content ?? "post not found"}
+  />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>

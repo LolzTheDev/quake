@@ -1,3 +1,16 @@
+<svelte:head>
+  <title>quark social</title>
+
+  <meta name="og:title" content="quark" />
+
+  <meta
+    name="og:description"
+    content="the free & open source social media built for all"
+  />
+
+  <meta name="theme-color" content="#0ea5e9" />
+</svelte:head>
+
 <main>
   <div class="flex items-center gap-3">
     <img src="/logo-full.svg" width={48} height={48} alt="quark logo" />

@@ -27,6 +27,12 @@
 
 <svelte:head>
   <title>quark - register</title>
+
+  <meta name="og:title" content="register" />
+
+  <meta name="og:description" content="create a quark social account" />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>

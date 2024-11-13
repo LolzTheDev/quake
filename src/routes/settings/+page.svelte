@@ -47,6 +47,12 @@
 
 <svelte:head>
   <title>quark - settings</title>
+
+  <meta name="og:title" content="settings" />
+
+  <meta name="og:description" content="manage your account settings" />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>

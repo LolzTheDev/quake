@@ -8,6 +8,15 @@
 
 <svelte:head>
   <title>quark - explore</title>
+
+  <meta name="og:title" content="explore" />
+
+  <meta
+    name="og:description"
+    content="find the latest and freshest posts on quark social"
+  />
+
+  <meta name="theme-color" content="#0ea5e9" />
 </svelte:head>
 
 <main>
