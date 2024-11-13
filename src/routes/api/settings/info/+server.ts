@@ -22,6 +22,14 @@ export async function POST({
   const session = await auth.decryptToken(token);
   const { nickname, bio } = await request.json();
 
+  if (
+    !new RegExp(
+      `^(?!.*[\\u200B\\u200C\\u200D\\uFEFF]).*[A-Za-z0-9\\s._\\-!@#$%^&*(),\\\`~+=|;:<>?/\\\\'"{}[\\]<>^&*]*$`,
+    ).test(nickname.trim())
+  ) {
+    return json({ error: true, message: "invalid nickname" });
+  }
+
   if (!nickname.trim() || !bio)
     return json({ error: true, message: "missing details " });
 
