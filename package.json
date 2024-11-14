@@ -26,6 +26,7 @@
 	},
 	"dependencies": {
 		"@prisma/client": "^5.22.0",
+		"@vercel/blob": "^0.26.0",
 		"argon2": "^0.41.1",
 		"jose": "^5.9.6",
 		"lucide-svelte": "^0.454.0"

@@ -11,9 +11,12 @@ export async function POST({
   cookies: Cookies;
 }) {
   const { username, password } = await request.json();
-  const user = await db.user.findUnique({
+  const user = await db.user.findFirst({
     where: {
-      username,
+      username: {
+        equals: username,
+        mode: "insensitive",
+      },
     },
   });
 
