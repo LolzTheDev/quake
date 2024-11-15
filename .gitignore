@@ -3,6 +3,7 @@ node_modules
 # static files
 /static/content/profile/picture/*
 !/static/content/profile/picture/invisiturtle.png
+!/static/content/profile/picture/672c3d2ba84535fceda6aac6.png
 
 # Output
 .output
