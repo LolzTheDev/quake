@@ -47,6 +47,7 @@ model Notification {
   to      String
   type    Notif_Type
   message String
+  read    Boolean    @default(false)
 }
 
 enum Notif_Type {
