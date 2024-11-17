@@ -7,6 +7,33 @@ const JWT_SECRET = new TextEncoder().encode(import.meta.env.JWT_SECRET);
 const alg = "HS256";
 
 export namespace auth {
+  export async function user(token: string): Promise<{
+    valid: boolean;
+    user: { name: string; nickname: string; id: string };
+  }> {
+    const valid = await verifyToken(token);
+    const user = (await decryptToken(token)).payload;
+
+    if (!valid)
+      return {
+        valid,
+        user: {
+          name: "",
+          nickname: "",
+          id: "",
+        },
+      };
+
+    return {
+      valid: valid,
+      user: {
+        name: user.username,
+        nickname: user.nickname,
+        id: user.id,
+      },
+    };
+  }
+
   export async function createToken(data: Object): Promise<string> {
     const token = await new jwt.SignJWT(data as jwt.JWTPayload)
       .setProtectedHeader({ alg })
