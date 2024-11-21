@@ -61,7 +61,7 @@
       <div class="flex items-center gap-4">
         <img
           src={`/api/pfp/${data.profile.id}`}
-          class="rounded-md size-24 border border-zinc-400 bg-white"
+          class="rounded-md size-24"
           alt="user pfp"
         />
 

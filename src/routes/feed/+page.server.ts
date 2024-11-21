@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({
   });
 
   const posts = await db.post.findMany({
-    take: 25,
+    take: 35,
     where: {
       author: {
         in: user?.following || [],

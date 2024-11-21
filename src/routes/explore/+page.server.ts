@@ -7,7 +7,7 @@ export const load: PageServerLoad = async () => {
   });
 
   const posts = db.post.findMany({
-    take: 20,
+    take: 40,
     orderBy: {
       posted: "desc",
     },

@@ -10,21 +10,21 @@ export async function POST({
   params: any;
 }) {
   const token = request.headers.get("Authorization") ?? "";
-  if (!(await auth.verifyToken(token))) {
+  const session = await auth.user(token);
+  if (!session.valid) {
     return json({
       status: false,
       message: "logged out / invalid session",
     });
   }
 
-  const session = await auth.decryptToken(token);
   const user = await db.user.findUnique({
     where: {
       id: params.id,
     },
   });
 
-  if (params.id === session.id) {
+  if (params.id === session.user.id) {
     return json({
       status: false,
       message: "you cannot follow yourself",
@@ -40,13 +40,13 @@ export async function POST({
 
   const liUser = await db.user.findUnique({
     where: {
-      id: session.payload.id,
+      id: session.user.id,
     },
   });
 
-  if (!user.followers.includes(session.payload.id)) {
+  if (!user.followers.includes(session.user.id)) {
     let followers = user.followers;
-    followers.push(session.payload.id);
+    followers.push(session.user.id);
     await db.user.update({
       where: {
         id: params.id,
@@ -58,24 +58,24 @@ export async function POST({
     liUser?.following.push(params.id);
     await db.user.update({
       where: {
-        id: session.payload.id,
+        id: session.user.id,
       },
       data: {
         following: liUser?.following,
       },
     });
-  } else if (user.followers.includes(session.payload.id)) {
+  } else if (user.followers.includes(session.user.id)) {
     await db.user.update({
       where: {
         id: params.id,
       },
       data: {
-        followers: user.followers.filter((f) => f !== session.payload.id),
+        followers: user.followers.filter((f) => f !== session.user.id),
       },
     });
     await db.user.update({
       where: {
-        id: session.payload.id,
+        id: session.user.id,
       },
       data: {
         following: liUser?.following.filter((f) => f !== params.id),

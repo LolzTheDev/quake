@@ -3,6 +3,7 @@
   import type { PageServerData } from "./$types";
 
   const { data }: { data: PageServerData } = $props();
+  import { goto, invalidate } from "$app/navigation";
 
   let nickname = $state(data.nickname);
   let bio = $state(data.bio);
@@ -35,6 +36,14 @@
     const result = await res.json();
     alert(result.message);
     window.location.href = "/settings";
+  }
+
+  async function logout() {
+    const res = await fetch("/api/logout");
+    if ((await res.text()) === "success") {
+      await invalidate((url) => url.pathname === "/");
+      goto("/");
+    }
   }
 
   let src = `/api/pfp/${$page.data.user.id}`;
@@ -91,5 +100,5 @@
     </div>
   </div>
 
-  <a href="/api/logout" class="button !bg-red-500">log out</a>
+  <button onclick={logout} class="button !bg-red-500">log out</button>
 </main>

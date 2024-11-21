@@ -8,33 +8,29 @@ const MW_DISABLED = ["/api/logout"];
 const LOGS_BLACKLIST = ["/api/pfp", "/api/user"];
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const authenticated = await auth.verifyToken(
-    event.cookies.get("token") ?? "",
-  );
+  const user = await auth.user(event.cookies.get("token") ?? "");
 
-  if (!authenticated) {
+  if (!user.valid) {
     event.locals.user = {};
     event.cookies.delete("token", {
       path: "/",
     });
   } else {
-    event.locals.user = await auth.decryptToken(
-      event.cookies.get("token") ?? "",
-    );
+    event.locals.user = user.user;
   }
 
   !LOGS_BLACKLIST.some((path) => event.url.pathname.startsWith(path))
     ? console.log(
-        `[${event.request.method}] ${event.url.pathname} - ${event.getClientAddress()} - @${event.locals.user.payload?.user ?? "[logged out]"}`,
+        `[${event.request.method}] ${event.url.pathname} - ${event.getClientAddress()} - @${user.user.name ?? "[logged out]"}`,
       )
     : "";
   if (MW_DISABLED.includes(event.url.pathname)) return resolve(event);
 
-  if (!authenticated && PROTECTED.includes(event.url.pathname)) {
+  if (!user.valid && PROTECTED.includes(event.url.pathname)) {
     throw redirect(303, "/login");
   }
 
-  if (authenticated && LI_PROTECTED.includes(event.url.pathname)) {
+  if (user.valid && LI_PROTECTED.includes(event.url.pathname)) {
     throw redirect(303, "/feed");
   }
 

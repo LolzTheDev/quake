@@ -11,12 +11,14 @@
     children: Snippet;
     data: LayoutData;
   } = $props();
+
+  let user = $state(data.user);
 </script>
 
 <Nav
   user={{
     auth: JSON.stringify(data.user) === "{}" ? false : true,
-    profile: data.user,
+    profile: user,
   }}
 />
 

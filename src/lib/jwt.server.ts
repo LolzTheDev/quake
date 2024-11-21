@@ -12,7 +12,7 @@ export namespace auth {
     user: { name: string; nickname: string; id: string };
   }> {
     const valid = await verifyToken(token);
-    const user = (await decryptToken(token)).payload;
+    const user = (await decryptToken(token))?.payload;
 
     if (!valid)
       return {
@@ -27,7 +27,7 @@ export namespace auth {
     return {
       valid: valid,
       user: {
-        name: user.username,
+        name: user.user,
         nickname: user.nickname,
         id: user.id,
       },

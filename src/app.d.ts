@@ -5,11 +5,9 @@ declare global {
     // interface Error {}
     interface Locals {
       user: {
-        payload?: {
-          user?: string;
-          id?: string;
-          nickname?: string;
-        };
+        name?: string;
+        id?: string;
+        nickname?: string;
       };
     }
     // interface PageData {}
