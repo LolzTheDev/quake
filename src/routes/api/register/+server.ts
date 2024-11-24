@@ -22,7 +22,7 @@ export async function POST({ request }: { request: Request }) {
   }
 
   if (
-    !new RegExp("^[A-z0-9_](?:[A-Za-z0-9._]{2,18}[A-Za-z0-9_])?$").test(
+    !new RegExp("^[A-Za-z0-9_][A-Za-z0-9._]{2,18}[A-Za-z0-9_]$").test(
       username,
     )
   ) {
