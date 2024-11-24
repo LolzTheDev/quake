@@ -1,6 +1,9 @@
 import { auth } from "$lib/jwt.server";
 import { json } from "@sveltejs/kit";
+import { put } from "@vercel/blob";
 import { writeFileSync } from "fs";
+
+import { HOSTING } from "$env/static/private";
 
 export async function POST({ request }: { request: Request }) {
   const formData = await request.formData();
@@ -20,10 +23,17 @@ export async function POST({ request }: { request: Request }) {
     return json({ error: true, message: "provide a valid file" });
   }
 
-  writeFileSync(
-    `${process.cwd()}/static/content/profile/picture/${user.payload.id}.png`,
-    Buffer.from(await pfp.arrayBuffer()),
-  );
+  if (HOSTING === "vercel") {
+    await put(`/pfp/${user.payload.id}.png`, await pfp.arrayBuffer(), {
+      access: "public",
+      addRandomSuffix: false,
+    });
+  } else {
+    writeFileSync(
+      `${process.cwd()}/static/content/profile/picture/${user.payload.id}.png`,
+      Buffer.from(await pfp.arrayBuffer()),
+    );
+  }
 
   return json({
     error: false,
